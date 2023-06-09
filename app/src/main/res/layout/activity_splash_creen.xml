@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SplashScreenActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="195dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/logo_" />
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bienvenue sur Teclaire S.A.R.L"
+        android:textColor="#264D91"
+        android:textSize="15dp"
+        android:layout_below="@+id/logo"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/MyProgressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:layout_below="@+id/welcomeText"
+        android:layout_marginEnd="120dp"
+        android:layout_marginStart="120dp"
+        android:indeterminateTint="@android:color/black" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Powered by Glab!"
+        android:textAlignment="center"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

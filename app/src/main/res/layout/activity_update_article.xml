@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateArticleActivity"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:background="@drawable/fond_ecran">
+
+    <ImageView
+        android:id="@+id/preview_image"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginBottom="7dp"
+        android:src="@drawable/achat_img"
+        android:scaleType="centerCrop"/>
+
+    <EditText
+        android:id="@+id/articleNameInputModify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="40dp"
+        android:hint="Entrer le nom du produit"/>
+
+    <EditText
+        android:id="@+id/qteArticleInputModify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="40dp"
+        android:hint="Entrer la quantite"/>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/saveArticleModifyBtn"
+            android:layout_marginRight="8dp"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Enregistrer" />
+
+        <Button
+            android:id="@+id/deleteArticleBtn"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF0000"
+            android:padding="10dp"
+            android:text="supprimer" />
+
+    </LinearLayout>
+
+</LinearLayout>
