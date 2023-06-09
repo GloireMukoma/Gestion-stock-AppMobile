@@ -27,6 +27,8 @@ public class UpdateArticleActivity extends AppCompatActivity {
     ArrayList<Article> arrayListArticle;
     private static final int REQUEST_UPDATE_ARTICLE = 1;
 
+    TextView entrerStock, sortieStock;
+
     String nomArt;
     int qteStk;
     String _nomMag;
@@ -37,10 +39,15 @@ public class UpdateArticleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_article);
         sqlite = new MyDatabaseHelper(this);
         arrayListArticle = new ArrayList<>();
-        nomArticleModif = findViewById(R.id.articleNameInputModify);
-        qteStockArticleMof = findViewById(R.id.qteArticleInputModify);
+
+        nomArticleModif = findViewById(R.id.productNameModify);
+        qteStockArticleMof = findViewById(R.id.productQteModify);
+
         saveModif = findViewById(R.id.saveArticleModifyBtn);
         deleteArticle = findViewById(R.id.deleteArticleBtn);
+
+        entrerStock = findViewById(R.id.entrerStock);
+        sortieStock = findViewById(R.id.sortieStock);
 
         // recupere les attributs de l'item qui est cliqué
         String idArticleToUpdate_ = getIntent().getStringExtra("idArticle");
@@ -53,7 +60,7 @@ public class UpdateArticleActivity extends AppCompatActivity {
 
         ActionBar ar = getSupportActionBar();
         if (ar != null) {
-            ar.setTitle("Modification");
+            ar.setTitle("Fiche du produit");
         }
 
         saveModif.setOnClickListener(new View.OnClickListener() {
