@@ -13,7 +13,7 @@
         android:id="@+id/magasinIcon"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginBottom="9dp"
         android:src="@drawable/achat_img"
         android:scaleType="centerCrop"/>
 
@@ -21,6 +21,7 @@
         android:id="@+id/magasinNameInput_"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/edittext_border"
         android:height="40dp"
         android:hint="Entrer le nom du magasin"/>
 

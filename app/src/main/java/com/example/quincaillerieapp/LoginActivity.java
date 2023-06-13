@@ -18,7 +18,7 @@ import com.example.quincaillerieapp.DatabaseAcces.MyDatabaseHelper;
 public class LoginActivity extends AppCompatActivity {
     MyDatabaseHelper SQLite;
     Button loginUserbton;
-    TextView nomUser, passwordUser;
+    TextView passwordUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,24 +38,21 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         loginUserbton = findViewById(R.id.loginUserBtn);
-        nomUser = findViewById(R.id.nomUserLogin);
         passwordUser = findViewById(R.id.passwordUserLogin);
 
         loginUserbton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Récupère les informations saisies
-                String username = nomUser.getText().toString().trim();
                 String password = passwordUser.getText().toString().trim();
 
                 // Vérifie l'authentification
-                if (isValidLogin(username, password)) {
+                if (isValidLogin(password)) {
                     // Authentification réussie, redirige vers l'activité principale
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish(); // Termine l'activité de connexion pour qu'elle ne soit pas accessible via le bouton "Retour"
                 } else {
-                    nomUser.setText("");
                     passwordUser.setText("");
                     // Authentification échouée, affiche un message d'erreur
                     Toast.makeText(LoginActivity.this, "Nom d'utilisateur ou mot de passe incorrect", Toast.LENGTH_SHORT).show();
@@ -65,8 +62,8 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-    private boolean isValidLogin(String username, String password) {
-        if(username.equals("teclaire") && password.equals("0012")){
+    private boolean isValidLogin(String password) {
+        if(password.equals("007807")){
             return true;
         }else{
             return false;

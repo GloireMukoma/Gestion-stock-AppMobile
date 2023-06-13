@@ -52,9 +52,9 @@
     <EditText
         android:id="@+id/qteEntrerStockInput"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:inputType="number"
-        android:height="40dp"
+        android:background="@drawable/edittext_border"
         android:hint="Entrer la quantité sortie stock"/>
 
     <Button

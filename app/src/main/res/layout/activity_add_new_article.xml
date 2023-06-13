@@ -22,15 +22,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:height="40dp"
-        android:hint="Entrer le nom du produit"/>
+        android:layout_marginBottom="5dp"
+        android:hint="Entrer le nom du produit"
+        android:background="@drawable/edittext_border"/>
 
     <EditText
         android:id="@+id/qteArticleInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:inputType="number"
         android:height="40dp"
-        android:hint="Entrer la quantite"/>
+        android:hint="Entrer la quantite"
+        android:background="@drawable/edittext_border"/>
 
     <Button
         android:id="@+id/saveArticleBtn"
