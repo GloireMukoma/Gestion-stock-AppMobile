@@ -5,33 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="8dp">
 
     <ImageView
-        android:src="@drawable/achat_img"
+        android:src="@drawable/logo_"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:scaleType="center"/>
+        android:layout_height="140dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:padding="15dp">
 
         <EditText
             android:id="@+id/nomUserLogin"
             android:hint="Entrez le nom d'utilisateur"
+            android:textSize="16dp"
+            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_border"/>
 
         <EditText
             android:id="@+id/passwordUserLogin"
-            android:hint="Entrez votre mot de passe"
+            android:hint="Entrez le mot de passe"
+            android:textSize="16dp"
             android:inputType="textPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_border"/>
 
         <Button
             android:id="@+id/loginUserBtn"

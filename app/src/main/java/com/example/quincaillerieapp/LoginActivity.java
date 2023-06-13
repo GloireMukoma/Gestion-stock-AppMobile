@@ -1,5 +1,6 @@
 package com.example.quincaillerieapp;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -28,6 +29,11 @@ public class LoginActivity extends AppCompatActivity {
         // Met en plein écran
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 //WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        ActionBar ar = getSupportActionBar();
+        if (ar != null) {
+            ar.setTitle("Connexion");
+        }
 
         setContentView(R.layout.activity_login);
 
