@@ -1,5 +1,6 @@
 package com.example.quincaillerieapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -45,6 +49,7 @@ public class UpdateArticleActivity extends AppCompatActivity {
 
         entrerStockBtn = findViewById(R.id.entrerStockBtn);
         sortieStockBtn = findViewById(R.id.sortieStockBtn);
+        deleteArticle = findViewById(R.id.deleteArticle);
 
         // recupere les attributs de l'item qui est cliqué
         String idArticleToUpdate_ = getIntent().getStringExtra("idArticle");
@@ -67,6 +72,7 @@ public class UpdateArticleActivity extends AppCompatActivity {
                 intent.putExtra("id", idArticleToUpdate_);
                 intent.putExtra("nomArticleToUpdate", nomArticleToUpdate_);
                 intent.putExtra("qteStockArticleToUpdate", qteStockArticleToUpdate_);
+                intent.putExtra("nom_mag", nomMagToUpdate);
                 startActivity(intent);
 
             }
@@ -79,12 +85,53 @@ public class UpdateArticleActivity extends AppCompatActivity {
                 intent.putExtra("id", idArticleToUpdate_);
                 intent.putExtra("nomArticleToUpdate", nomArticleToUpdate_);
                 intent.putExtra("qteStockArticleToUpdate", qteStockArticleToUpdate_);
+                intent.putExtra("nom_mag", nomMagToUpdate);
                 startActivity(intent);
 
             }
         });
-
-
+        deleteArticle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                confirmDialog();
+            }
+        });
     }
+
+    // méthode pour supprimer un article
+    public void confirmDialog() {
+        String nomArticleToUpdate_ = getIntent().getStringExtra("nomArticle");
+        String nomMagToUpdate = getIntent().getStringExtra("nom_mag");
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Suppression de " + nomArticleToUpdate_ + " ?");
+        builder.setMessage("Êtes-vous sûr de vouloir supprimer " + nomArticleToUpdate_ + " ?");
+        builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String idArticleToUpdate_ = getIntent().getStringExtra("idArticle");
+                boolean isDeleted = sqlite.deleteArticle(idArticleToUpdate_);
+                if (isDeleted) {
+                    Toast.makeText(UpdateArticleActivity.this, "Article supprimé avec succès", Toast.LENGTH_SHORT).show();
+
+                    // Indiquez que la suppression a été effectuée avec succès
+                    Intent intent = new Intent(UpdateArticleActivity.this, ArticleActivity.class);
+                    intent.putExtra("nomMagasin_", nomMagToUpdate);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(UpdateArticleActivity.this, "Échec de la suppression de l'article", Toast.LENGTH_SHORT).show();
+                }
+                finish();
+            }
+        });
+        builder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // Ne rien faire si l'utilisateur clique sur "Non"
+            }
+        });
+        builder.create().show();
+    }
+
 
 }

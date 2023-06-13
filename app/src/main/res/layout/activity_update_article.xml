@@ -50,6 +50,13 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_gravity="center"
+        android:text="Opérations sur le stock"
+        android:textSize="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,17 +65,26 @@
         <Button
             android:id="@+id/entrerStockBtn"
             android:layout_marginRight="8dp"
-            android:layout_width="130dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:textSize="10dp"
-            android:text="Entrer stock" />
+            android:text="Entrer" />
 
         <Button
             android:id="@+id/sortieStockBtn"
-            android:layout_width="130dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
             android:textSize="10dp"
-            android:text="Sortie stock" />
+            android:text="Sortie" />
+
+        <Button
+            android:id="@+id/deleteArticle"
+            android:layout_width="97dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#CC0D0D"
+            android:textSize="10dp"
+            android:text="Supprimer" />
 
     </LinearLayout>
 

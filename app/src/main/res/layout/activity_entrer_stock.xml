@@ -8,18 +8,52 @@
     android:orientation="vertical"
     android:padding="15dp">
 
-    <ImageView
-        android:id="@+id/magasinIcon"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_marginBottom="7dp"
-        android:src="@drawable/achat_img"
-        android:scaleType="centerCrop"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="7dp">
+
+        <TextView
+            android:text="Designation du produit :"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/productName"
+            android:text="LOREM IPSUM DOLOREST AMETRIC"
+            android:textStyle="bold"
+            android:textSize="22dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Quantité stock :"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/productQte"
+            android:text="189 stocks"
+            android:textStyle="bold"
+            android:textSize="22dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#AAA9A9" /> <!-- Couleur de la bordure inférieure -->
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/qteEntrerStockInput"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:inputType="number"
         android:height="40dp"
         android:hint="Entrer la quantité sortie stock"/>
 

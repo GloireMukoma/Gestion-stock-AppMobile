@@ -1,5 +1,6 @@
 package com.example.quincaillerieapp;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,6 +16,7 @@ public class EntrerStockActivity extends AppCompatActivity {
     MyDatabaseHelper sqlite;
     Button saveQteEntrerStockInputBtn;
     TextView qteEntrerStockInput;
+    TextView productName, productQte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +27,22 @@ public class EntrerStockActivity extends AppCompatActivity {
         qteEntrerStockInput = findViewById(R.id.qteEntrerStockInput);
         saveQteEntrerStockInputBtn = findViewById(R.id.saveQteEntrerStockInputBtn);
 
+        productName = findViewById(R.id.productName);
+        productQte = findViewById(R.id.productQte);
+
         // recupere les attributs de l'item qui est cliqué
         String idArticleToUpdate_ = getIntent().getStringExtra("id");
         String nomArticleToUpdate_ = getIntent().getStringExtra("nomArticleToUpdate");
         String qteStockArticleToUpdate_ = getIntent().getStringExtra("qteStockArticleToUpdate");
+        String nom_mag = getIntent().getStringExtra("nom_mag");
+
+        productName.setText(nomArticleToUpdate_);
+        productQte.setText(qteStockArticleToUpdate_);
+
+        ActionBar ar = getSupportActionBar();
+        if (ar != null) {
+            ar.setTitle("Entrer de stock");
+        }
 
         saveQteEntrerStockInputBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,12 +64,14 @@ public class EntrerStockActivity extends AppCompatActivity {
 
                 boolean isUpdated = sqlite.updateArticle(idArticleToUpdate_, newStockQte);
                 if (isUpdated) {
-                    Toast.makeText(EntrerStockActivity.this, "Article modifié avec succès!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EntrerStockActivity.this, "Succès!", Toast.LENGTH_SHORT).show();
 
                     // Indiquez que la modification a été effectuée avec succès
-                    Intent resultIntent = new Intent();
-                    resultIntent.putExtra("isArticleModified", true);
-                    setResult(RESULT_OK, resultIntent);
+                    Intent intent = new Intent(EntrerStockActivity.this, ArticleActivity.class);
+                    intent.putExtra("nomMagasin_", nom_mag);
+                    startActivity(intent);
+                    finish();
+
                 } else {
                     Toast.makeText(EntrerStockActivity.this, "Une erreur s'est produite. Vérifiez si la quantité stock ne contient pas des caractères!", Toast.LENGTH_SHORT).show();
                 }
