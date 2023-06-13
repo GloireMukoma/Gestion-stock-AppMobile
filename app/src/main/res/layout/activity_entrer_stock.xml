@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EntrerStockActivity"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/magasinIcon"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginBottom="7dp"
+        android:src="@drawable/achat_img"
+        android:scaleType="centerCrop"/>
+
+    <EditText
+        android:id="@+id/qteEntrerStockInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="40dp"
+        android:hint="Entrer la quantité sortie stock"/>
+
+    <Button
+        android:id="@+id/saveQteEntrerStockInputBtn"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Enregistrer" />
+
+
+</LinearLayout>

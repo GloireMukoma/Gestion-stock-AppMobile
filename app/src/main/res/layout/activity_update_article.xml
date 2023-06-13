@@ -50,43 +50,25 @@
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/sortieStock"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:height="40dp"
-        android:hint="Quantité entrer"/>
-
-    <EditText
-        android:id="@+id/entrerStock"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:height="40dp"
-        android:hint="Quantité sortie"/>
-
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
 
         <Button
-            android:id="@+id/saveArticleModifyBtn"
+            android:id="@+id/entrerStockBtn"
             android:layout_marginRight="8dp"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Enregistrer" />
+            android:textSize="10dp"
+            android:text="Entrer stock" />
 
         <Button
-            android:id="@+id/deleteArticleBtn"
+            android:id="@+id/sortieStockBtn"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FF0000"
-            android:padding="10dp"
-            android:text="supprimer" />
+            android:textSize="10dp"
+            android:text="Sortie stock" />
 
     </LinearLayout>
 

@@ -96,12 +96,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean updateArticle(String row_id, String nomArticle, int qte_stock, String _nom_mag){
+    public boolean updateArticle(String row_id, int qte_stock){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_NAME_ARTICLE, nomArticle);
         cv.put(COLUMN_QTE_STOCK_ARTICLE, qte_stock);
-        cv.put(COLUMN_NOMMAGASIN_ARTICLE, _nom_mag);
         long result = db.update(TABLE_ARTICLE_NAME, cv, "_id=?", new String[]{row_id});
         return result != -1;
     }
